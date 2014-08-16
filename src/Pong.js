@@ -4,18 +4,31 @@ var Pong = (function() {
 	screen.width 	= 300; 
 	screen.height 	= 300;
 	document.getElementsByTagName('body')[0].appendChild(screen);
+
+	function drawBall(x, y) {
+		ctx.fillStyle = '#FFFFFF';
+		ctx.fillRect(x, y, 10, 10);		
+	}
 	
+	function drawPlayer(x, y) {
+		ctx.fillStyle = '#FFFFFF';
+		ctx.fillRect(x, y, 10, 40);		
+	}
+
+	function drawCourt() {
+		ctx.fillStyle = '#000000';
+		ctx.fillRect(0, 0, 300, 300);
+	}
+
 	return {
 		start: function() {
-			ctx.fillStyle = '#000000';
-			ctx.fillRect(0, 0, 300, 300);
+			drawCourt();
 
-			ctx.fillStyle = '#FFFFFF';
-			ctx.fillRect(10, 130, 10, 40);
+			drawPlayer(10, 130)
 
-			ctx.fillRect(280, 130, 10, 40);
+			drawPlayer(280, 130);
 
-			ctx.fillRect(25, 145, 10, 10);
+			drawBall(25, 145);
 
 		},
 		play: function() {
